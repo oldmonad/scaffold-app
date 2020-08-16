@@ -1,0 +1,76 @@
+type Query {
+  getCats: [Cat]
+  cat(id: ID!): Cat
+}
+
+input UpdateProfileInput {
+  firstName: String
+}
+
+input CreateOfferinput {
+  offerData: String
+}
+
+input CreateTradeinput {
+  offerId: String
+  tradeData: String
+}
+
+input RegisterUserInput {
+  email: String
+}
+
+type UserRO {
+  user: User!
+  token: String!
+}
+
+type OfferRO {
+  offer: Offer
+}
+
+type Mutation {
+  createCat(createCatInput: CreateCatInput): Cat
+  register(registerUser: RegisterUserInput): UserRO
+  createOffer(createOffer: CreateOfferinput): OfferRO
+  createTrade(createTrade: CreateTradeinput): OfferRO
+  login(loginUser: RegisterUserInput): UserRO
+}
+
+type Query {
+  getOffers: [Offer]
+}
+
+type Subscription {
+  catCreated(id: ID!): Cat
+  tradeCreated(id: String): OfferRO
+}
+
+type Cat {
+  id: Int
+  name: String
+  age: Int
+}
+
+type Offer {
+  id: String
+  offerData: String
+  trade: Trade
+  user: User
+}
+
+type Trade {
+  id: String
+  tradeData: String
+  user: User
+}
+
+type User {
+  id: String
+  email: String
+}
+
+input CreateCatInput {
+  name: String
+  age: Int
+}

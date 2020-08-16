@@ -1,0 +1,81 @@
+
+/** ------------------------------------------------------
+ * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+ * -------------------------------------------------------
+ */
+
+/* tslint:disable */
+/* eslint-disable */
+export interface UpdateProfileInput {
+    firstName?: string;
+}
+
+export interface CreateOfferinput {
+    offerData?: string;
+}
+
+export interface CreateTradeinput {
+    offerId?: string;
+    tradeData?: string;
+}
+
+export interface RegisterUserInput {
+    email?: string;
+}
+
+export interface CreateCatInput {
+    name?: string;
+    age?: number;
+}
+
+export interface IQuery {
+    getCats(): Cat[] | Promise<Cat[]>;
+    cat(id: string): Cat | Promise<Cat>;
+    getOffers(): Offer[] | Promise<Offer[]>;
+}
+
+export interface UserRO {
+    user: User;
+    token: string;
+}
+
+export interface OfferRO {
+    offer?: Offer;
+}
+
+export interface IMutation {
+    createCat(createCatInput?: CreateCatInput): Cat | Promise<Cat>;
+    register(registerUser?: RegisterUserInput): UserRO | Promise<UserRO>;
+    createOffer(createOffer?: CreateOfferinput): OfferRO | Promise<OfferRO>;
+    createTrade(createTrade?: CreateTradeinput): OfferRO | Promise<OfferRO>;
+    login(loginUser?: RegisterUserInput): UserRO | Promise<UserRO>;
+}
+
+export interface ISubscription {
+    catCreated(id: string): Cat | Promise<Cat>;
+    tradeCreated(id?: string): OfferRO | Promise<OfferRO>;
+}
+
+export interface Cat {
+    id?: number;
+    name?: string;
+    age?: number;
+}
+
+export interface Offer {
+    id?: string;
+    offerData?: string;
+    trade?: Trade;
+    user?: User;
+}
+
+export interface Trade {
+    id?: string;
+    tradeData?: string;
+    user?: User;
+}
+
+export interface User {
+    id?: string;
+    email?: string;
+}
